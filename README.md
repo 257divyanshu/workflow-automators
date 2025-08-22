@@ -61,4 +61,46 @@ check_if_installed('non_existent_module')
 
 ---
 
+### 3\. [Screenshot Renamer](rename_screenshot.py)
+
+Automatically renames screenshot files based on their content using OCR and AI, adding a sequential three-digit prefix to keep them organized.
+
+#### Setup
+
+1.  **Install Tesseract-OCR**:
+
+      * **Windows**: Download the installer from [tesseract-ocr's GitHub](https://github.com/tesseract-ocr/tesseract/releases).
+      * **macOS**: `brew install tesseract`
+      * **Linux**: `sudo apt install tesseract-ocr`
+
+2.  **Install Python Libraries**:
+
+    ```bash
+    pip install google-generativeai pillow pytesseract
+    ```
+
+3.  **Set Gemini API Key**:
+
+      * Get your API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+      * Set it as an environment variable named `GEMINI_API_KEY`.
+
+#### Usage
+
+Run the script from your terminal, pointing it to the folder containing your screenshots.
+
+```bash
+python rename_screenshots.py "C:\path\to\your\screenshot_notes"
+```
+
+The script will automatically find the last used index (e.g., `047_...`) and start naming new files from the next number (`048_...`).
+
+#### Features
+
+  - **AI-Powered Naming**: Uses Gemini to generate relevant, descriptive filenames from image content.
+  - **Automatic Indexing**: Scans the directory to find the last number and continues the sequence, keeping notes in order.
+  - **Smart Processing**: Intelligently skips files that are already correctly named, only processing new screenshots.
+  - **Text Recognition**: Employs Tesseract OCR to accurately extract text from any screenshot.
+
+-----
+
 *Automate the boring stuff* 🚀
