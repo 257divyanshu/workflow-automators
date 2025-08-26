@@ -101,6 +101,31 @@ The script will automatically find the last used index (e.g., `047_...`) and sta
   - **Smart Processing**: Intelligently skips files that are already correctly named, only processing new screenshots.
   - **Text Recognition**: Employs Tesseract OCR to accurately extract text from any screenshot.
 
------
+---
+
+### 4. [Sequential Image Renamer](rename_images_sequentially.py)
+A simple script to batch rename all image files in a folder to a sequential format using a specified keyword.
+
+**Usage:**
+```bash
+# Renames all images in the 'vacation_pics' folder
+python rename_images_sequentially.py beach_day --path ./vacation_pics
+```
+
+**Example Output:**
+```bash
+✓ Renamed 'IMG_2024.jpg' to 'beach_day_01.jpg'
+✓ Renamed 'Screenshot (1).png' to 'beach_day_02.png'
+✓ Renamed 'photo_001.jpeg' to 'beach_day_03.jpeg'
+```
+
+**Features:**
+- **Simple & Fast**: Quickly renames all supported image types in a directory.
+- **Custom Keywords**: Use any keyword as the base for your new filenames.
+- **Consistent Naming**: Creates a clean, numbered sequence (e.g., `keyword_01`, `keyword_02`).
+- **Safe**: Checks for a valid directory and handles potential errors gracefully.
+
+---
+
 
 *Automate the boring stuff* 🚀
