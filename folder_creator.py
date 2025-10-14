@@ -19,18 +19,24 @@ def create_folders(folder_prefix, num_folders, base_path="."):
     # Get the current working directory name to extract module number
     current_dir = os.path.basename(os.path.abspath(base_path))
     
-    # Extract module number from directory name (e.g., "module05" -> "5")
-    module_num = ""
-    if current_dir.startswith("module"):
-        module_num = current_dir.replace("module", "").lstrip("0") or "0"
+    # Extract module number from directory name (e.g., "module05" -> "05", "module5" -> "5", "module" -> "")
+    i = len(current_dir)-1
+    while(current_dir[i].isdigit()):
+        i = i-1
+    module_num = current_dir[i+1:]
     
     try:
         for i in range(1, num_folders + 1):
             if module_num:
-                folder_name = f"{folder_prefix}{module_num}.{i}"
+                if(i<10):
+                    folder_name = f"{folder_prefix}{module_num}.0{i}"
+                else:
+                    folder_name = f"{folder_prefix}{module_num}.{i}"
             else:
-                folder_name = f"{folder_prefix}{i}"
-            
+                if(i<10):
+                    folder_name = f"{folder_prefix}0{i}"
+                else:
+                    folder_name = f"{folder_prefix}{i}"
             folder_path = os.path.join(base_path, folder_name)
             
             # Create the folder if it doesn't exist
