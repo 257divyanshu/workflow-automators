@@ -9,7 +9,10 @@ Creates numbered subfolders with intelligent naming.
 
 **Usage:**
 ```bash
-# In "module05" directory, creates: chapter5.1, chapter5.2, chapter5.3
+# In "module05" directory, creates: chapter05.01, chapter05.02, chapter05.03
+python folder_creator.py chapter 3
+
+# In "module" directory, creates: chapter01, chapter02, chapter03
 python folder_creator.py chapter 3
 
 # Custom path
